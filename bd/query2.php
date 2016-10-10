@@ -13,9 +13,18 @@ $sql = "SELECT * FROM contactos";
 $result = $db->query($sql);
 
 if ($result->num_rows > 0) {
+	echo "<table border='1' cellpadding='10'>";
+	echo "<tr><th>ID</th><th>Nome</th><th>Apelido</th><th>Telemovel</th></th></tr>";
    while ($row = $result->fetch_assoc()) {
-   		echo $row["nome"]. " " . $row["apelido"]. " " . $row["telemovel"] . "<br>";
+   	echo "<tr>";
+   		echo "<td>" . $row["id2"]. "</td>";
+   		echo "<td>" . $row["nome"]. "</td>";
+   		echo "<td>". $row["apelido"]. "</td>";
+   		echo "<td>" . $row["telemovel"]. "</td>";
+   		echo "<td><a href='editar.php?id2=" . $row["id2"]. "'>Edit</a></td>";
+   		echo "</tr>";
    }
+   echo "</table>";
 } else {
     echo "no results";
 }
